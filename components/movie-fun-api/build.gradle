@@ -1,0 +1,16 @@
+apply from: "../../java.gradle"
+apply plugin: "io.spring.dependency-management"
+
+dependencyManagement { 
+	imports {  
+		mavenBom "io.pivotal.spring.cloud:spring-cloud-services-dependencies:$springCloudServicesVersion" 
+		} 
+	}
+dependencies {
+    compile "org.springframework:spring-web:$springVersion"
+    
+    compile "io.pivotal.spring.cloud:spring-cloud-services-starter-service-registry" 
+    compile "io.pivotal.spring.cloud:spring-cloud-services-starter-circuit-breaker"
+    compile "javax.servlet:javax.servlet-api:3.1.0"
+    compile "org.slf4j:slf4j-api:$slf4jVersion"
+}

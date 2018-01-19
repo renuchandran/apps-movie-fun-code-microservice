@@ -1,0 +1,30 @@
+spring:
+  mvc.view:
+    prefix: /WEB-INF/
+    suffix: .jsp
+
+logging.level:
+  root: WARN
+  org.superbiz.moviefun: DEBUG
+
+security:
+  basic:
+    enabled: false
+
+management:
+  security:
+    enabled: false
+    
+logging:
+  level:
+    io:
+      pivotal: INFO
+      
+movies:
+  url: http://localhost:8082/movies
+  environment: Local Environment
+
+turbine:
+  aggregator:
+    clusterConfig: MOVIE-FUN-APP-HYSTRIX
+  appConfig: MOVIE-FUN-APP-HYSTRIX

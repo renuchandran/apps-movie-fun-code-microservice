@@ -1,0 +1,29 @@
+---
+memory: 1G
+instances: 1
+applications:
+- name: movie-service
+  path: applications/movie-service/build/libs/movie-service-1.1.0-SNAPSHOT.jar
+  services:
+  - movies-mysql
+  - service-registry
+  - circuit-breaker-dashboard
+  routes:
+    - route: movie-service-renuchandran.apps.cumuluslabs.io
+- name: movie-service-qa
+  path: applications/movie-service/build/libs/movie-service-1.1.0-SNAPSHOT.jar
+  services:
+  - movies-mysql-qa
+  - service-registry
+  - circuit-breaker-dashboard
+  routes:
+    - route: movie-service-renuchandran-qa.apps.cumuluslabs.io
+- name: movie-fun-app
+  path: applications/movie-fun-app/build/libs/movie-fun-app-1.1.0-SNAPSHOT.war
+  services:
+  - config-server
+  - service-registry
+  - circuit-breaker-dashboard
+  routes:
+    - route: movie-fun-app-renuchandran.apps.cumuluslabs.io
+  
